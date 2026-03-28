@@ -49,7 +49,13 @@ import com.example.navigationdrawer.Home
 import com.example.navigationdrawer.Cart
 import com.example.navigationdrawer.Favorite
 import com.example.navigationdrawer.ui.theme.Black
-
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
+import androidx.compose.ui.unit.dp
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,9 +87,23 @@ fun NavigationDrawer() {
                         .background(Grey)
                         .fillMaxWidth() // Changed from fillMaxSize to allow items to show
                         .height(120.dp)
-                ) {
-                    Text(text = "")
-                } // Added missing closing bracket for Box
+                ){
+                Image(
+                    painter = painterResource(R.drawable.ic_launcher_background),
+                    contentDescription = null,
+                    modifier = Modifier.matchParentSize(),
+                    contentScale = ContentScale.Crop
+                )
+
+                // Logo
+                Image(
+                    painter = painterResource(R.drawable.ic_launcher_foreground),
+                    contentDescription = "Logo",
+                    modifier = Modifier
+                        .size(300.dp)
+                        .align(Alignment.Center) // center logo
+                )
+            }
 
                 Divider()
 
@@ -172,10 +192,10 @@ fun NavigationDrawer() {
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text(text = "NavigationDrawer") },
+                    title = { Text(text = "Navigation Drawer") },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = Grey,
-                        titleContentColor = Color.Black,
+                        titleContentColor = Color.White,
                         navigationIconContentColor = Color.Black
                     ),
                     navigationIcon = {

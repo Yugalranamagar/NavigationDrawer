@@ -18,7 +18,7 @@ fun Home(){
             .fillMaxSize()
             .align(Alignment.Center),
             verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = "Profile", fontSize = 30.sp, color = Grey)
+            Text(text = "Home", fontSize = 30.sp, color = Grey)
         }
     }
 }
